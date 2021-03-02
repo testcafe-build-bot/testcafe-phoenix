@@ -158,6 +158,10 @@ const MULTIPLE_WINDOWS_TESTS_GLOB = 'test/functional/fixtures/multiple-windows/t
 const COMPILER_SERVICE_TESTS_GLOB = 'test/functional/fixtures/compiler-service/test.js';
 const LEGACY_TESTS_GLOB           = 'test/functional/legacy-fixtures/**/test.js';
 
+const MIGRATE_ALL_TESTS_TO_COMPILER_SERVICE_GLOB = [
+    'test/functional/fixtures/app-command/test.js'
+];
+
 const SCREENSHOT_TESTS_GLOB = [
     'test/functional/fixtures/api/es-next/take-screenshot/test.js',
     'test/functional/fixtures/screenshots-on-fails/test.js'
@@ -855,7 +859,7 @@ gulp.step('test-functional-local-multiple-windows-run', () => {
 gulp.task('test-functional-local-multiple-windows', gulp.series('prepare-tests', 'test-functional-local-multiple-windows-run'));
 
 gulp.step('test-functional-local-compiler-service-run', () => {
-    return testFunctional(COMPILER_SERVICE_TESTS_GLOB, functionalTestConfig.testingEnvironmentNames.localHeadlessChrome, { experimentalCompilerService: true });
+    return testFunctional(MIGRATE_ALL_TESTS_TO_COMPILER_SERVICE_GLOB.concat(COMPILER_SERVICE_TESTS_GLOB), functionalTestConfig.testingEnvironmentNames.localHeadlessChrome, { experimentalCompilerService: true });
 });
 
 gulp.task('test-functional-local-compiler-service', gulp.series('prepare-tests', 'test-functional-local-compiler-service-run'));
