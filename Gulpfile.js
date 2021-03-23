@@ -158,10 +158,6 @@ const MULTIPLE_WINDOWS_TESTS_GLOB = 'test/functional/fixtures/multiple-windows/t
 const COMPILER_SERVICE_TESTS_GLOB = 'test/functional/fixtures/compiler-service/test.js';
 const LEGACY_TESTS_GLOB           = 'test/functional/legacy-fixtures/**/test.js';
 
-const MIGRATE_ALL_TESTS_TO_COMPILER_SERVICE_GLOB = [
-    'test/functional/fixtures/app-command/test.js'
-];
-
 const SCREENSHOT_TESTS_GLOB = [
     'test/functional/fixtures/api/es-next/take-screenshot/test.js',
     'test/functional/fixtures/screenshots-on-fails/test.js'
@@ -172,6 +168,8 @@ const TESTS_GLOB = [
     `!${MULTIPLE_WINDOWS_TESTS_GLOB}`,
     `!${COMPILER_SERVICE_TESTS_GLOB}`
 ];
+
+const MIGRATE_ALL_TESTS_TO_COMPILER_SERVICE_GLOB = Array.from(TESTS_GLOB);
 
 const RETRY_TEST_RUN_COUNT = 3;
 
