@@ -325,6 +325,7 @@ module.exports = [
         command: {
             path:     'screenshotPath',
             fullPage: true,
+            thumbnails: undefined,
             type:     'take-screenshot',
         },
         test:    {
